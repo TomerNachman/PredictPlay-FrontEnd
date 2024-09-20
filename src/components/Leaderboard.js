@@ -18,7 +18,7 @@ import axios from "axios";
 const Leaderboard = () => {
   const [participants, setParticipants] = useState([]);
   const [loading, setLoading] = useState(true);
-  const API_URL = process.env.API_URL;
+  const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchParticipants = async () => {
