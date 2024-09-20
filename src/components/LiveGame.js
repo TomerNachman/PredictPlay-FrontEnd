@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -44,7 +42,7 @@ const LiveGame = () => {
   useEffect(() => {
     const fetchGame = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/games/${id}`);
+        const response = await axios.get(`${API_URL}/games/${id}`);
         const gameData = response.data;
         setGame(gameData);
         setLiveScores({
@@ -58,7 +56,7 @@ const LiveGame = () => {
 
     const fetchParticipants = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/participants");
+        const response = await axios.get(`${API_URL}/participants`);
         setParticipants(response.data);
       } catch (error) {
         console.error("Error fetching participants:", error);
@@ -81,7 +79,7 @@ const LiveGame = () => {
       setLiveScores({ home, away });
   
       try {
-        await axios.put(`http://localhost:5000/games/${id}`, {
+        await axios.put(`${API_URL}/games/${id}`, {
           homeScore: home,
           awayScore: away,
         });
@@ -125,7 +123,7 @@ const LiveGame = () => {
   
         await Promise.all(
           updatedParticipants.map((participant) =>
-            axios.put(`http://localhost:5000/participants/${participant._id}`, {
+            axios.put(`${API_URL}/participants/${participant._id}`, {
               points: participant.points,
             })
           )
