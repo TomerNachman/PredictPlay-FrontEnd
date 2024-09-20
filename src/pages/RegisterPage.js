@@ -27,7 +27,7 @@ const RegisterPage = () => {
   const [success, setSuccess] = useState(false); // מצב הודעת הצלחה
   const navigate = useNavigate();
 
-  const API_URL = process.env.API_URL;
+  const API_URL = process.env.REACT_APP_API_URL;
 
   const handleImageChange = (e, setImage) => {
     const file = e.target.files[0];
