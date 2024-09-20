@@ -8,7 +8,7 @@ const UserProfile = () => {
   const [user, setUser] = useState(null); // אחסון נתוני המשתמש
   const [loading, setLoading] = useState(true); // תצוגת טעינה עד לטעינת הנתונים
 
-  const API_URL = process.env.API_URL;
+ const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchUserProfile = async () => {
