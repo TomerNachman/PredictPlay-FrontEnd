@@ -33,7 +33,7 @@ const GameList = ({ games, setGames }) => {
   });
   const [error, setError] = useState(""); // מצב הודעות שגיאה
   const [success, setSuccess] = useState(false); // מצב הודעת הצלחה
-  const API_URL = process.env.API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
   const token = localStorage.getItem("token");
   let userRole = null;
