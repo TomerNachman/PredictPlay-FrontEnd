@@ -27,7 +27,7 @@ const AddUser = ({ addUser }) => {
   const [previewScorer, setPreviewScorer] = useState(null); // תצוגה מקדימה למבקיע
   const [previewWinner, setPreviewWinner] = useState(null); // תצוגה מקדימה לזוכה
 
-   const API_URL = process.env.API_URL;
+  const API_URL = process.env.REACT_APP_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
