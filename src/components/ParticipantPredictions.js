@@ -24,7 +24,7 @@ const ParticipantPredictions = () => {
   const [timer, setTimer] = useState({}); // הוספת מצב לאחסון זמני הספירה לאחור
   const navigate = useNavigate();
 
-  const API_URL = process.env.API_URL;
+  const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     const fetchPredictions = async () => {
