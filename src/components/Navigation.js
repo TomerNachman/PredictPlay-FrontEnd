@@ -144,6 +144,15 @@ const Navigation = () => {
     { text: 'משתתפים', path: '/participants' },
     { text: 'ניחושים', path: '/predictions' },
     { text: 'דירוג', path: '/leaderboard' },
+    ...(token ? [
+      { text: 'הפרופיל שלי', path: `/profile/${userId}` },
+      ...(userRole === "admin" ? [
+        { text: 'הוסף משתמש', path: '/add-user' }
+      ] : [])
+    ] : [
+      { text: 'התחבר', path: '/login' },
+      { text: 'הרשמה', path: '/register' }
+    ])
   ];
 
   const list = () => (
@@ -158,6 +167,11 @@ const Navigation = () => {
             <ListItemText primary={item.text} />
           </ListItem>
         ))}
+        {token && (
+          <ListItem button onClick={handleLogout}>
+            <ListItemText primary="התנתק" />
+          </ListItem>
+        )}
       </List>
     </div>
   );
@@ -186,14 +200,7 @@ const Navigation = () => {
         <Typography variant="h6" style={{ flexGrow: 1 }}>
           PredictPlay
         </Typography>
-        {token ? (
-          <>
-            <Typography color="inherit">שלום, {userRole === "admin" ? "מנהל" : userName}</Typography>
-            <Button color="inherit" onClick={handleLogout}>
-              התנתק
-            </Button>
-          </>
-        ) : (
+        {!token && (
           <>
             <Button color="inherit" component={Link} to="/login">
               התחבר
