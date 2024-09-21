@@ -167,11 +167,6 @@ const Navigation = () => {
             <ListItemText primary={item.text} />
           </ListItem>
         ))}
-        {token && (
-          <ListItem button onClick={handleLogout}>
-            <ListItemText primary="התנתק" />
-          </ListItem>
-        )}
       </List>
     </div>
   );
@@ -200,7 +195,16 @@ const Navigation = () => {
         <Typography variant="h6" style={{ flexGrow: 1 }}>
           PredictPlay
         </Typography>
-        {!token && (
+        {token && (
+          <Typography color="inherit">
+            שלום, {userRole === "admin" ? "מנהל" : "משתתף"}
+          </Typography>
+        )}
+        {token ? (
+          <Button color="inherit" onClick={handleLogout}>
+            התנתק
+          </Button>
+        ) : (
           <>
             <Button color="inherit" component={Link} to="/login">
               התחבר
