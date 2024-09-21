@@ -139,6 +139,13 @@ const Navigation = () => {
     setDrawerOpen(open);
   };
 
+  const menuItems = [
+    { text: 'משחקים', path: '/games' },
+    { text: 'משתתפים', path: '/participants' },
+    { text: 'ניחושים', path: '/predictions' },
+    { text: 'דירוג', path: '/leaderboard' },
+  ];
+
   const list = () => (
     <div
       role="presentation"
@@ -146,9 +153,9 @@ const Navigation = () => {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {["משחקים", "משתתפים", "ניחושים", "דירוג"].map((text, index) => (
-          <ListItem button key={text} component={Link} to={`/${text.toLowerCase()}`}>
-            <ListItemText primary={text} />
+        {menuItems.map((item) => (
+          <ListItem button key={item.text} component={Link} to={item.path}>
+            <ListItemText primary={item.text} />
           </ListItem>
         ))}
       </List>
