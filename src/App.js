@@ -19,7 +19,7 @@
 //     const storedParticipants = localStorage.getItem("participants");
 
 //     if (storedGames) {
-//       setGames(JSON.parse(storedGames));
+//       setGames(0JSON.parse(storedGames));
 //     } else {
 //       setGames(initialGamesData);
 //     }
